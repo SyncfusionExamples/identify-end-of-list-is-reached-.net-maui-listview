@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListViewMaui.MainPage"
+             xmlns:local="clr-namespace:ListViewMaui"
+             xmlns:listView="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+             xmlns:dataSource="clr-namespace:Syncfusion.Maui.DataSource;assembly=Syncfusion.Maui.DataSource">
+
+    <ContentPage.BindingContext>
+        <local:ViewModel />
+    </ContentPage.BindingContext>
+
+    <listView:SfListView x:Name="listView" ItemsSource="{Binding BookInfo}" ItemSize="120">
+        
+        <listView:SfListView.Behaviors>
+            <local:ListViewBehavior/>
+        </listView:SfListView.Behaviors>
+        
+        <listView:SfListView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <StackLayout Margin="10,0,0,0" VerticalOptions="StartAndExpand">
+                        <Label Text="{Binding BookName}" FontAttributes="Bold" FontSize="20" TextColor="Teal" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="{Binding BookDescription}" FontSize="14" TextColor="Teal" VerticalOptions="StartAndExpand"/>
+                    </StackLayout>
+                    <BoxView HeightRequest="1" BackgroundColor="Teal" />
+                </StackLayout>
+            </DataTemplate>
+        </listView:SfListView.ItemTemplate>
+    </listView:SfListView>
+</ContentPage>
